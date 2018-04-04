@@ -1,0 +1,15 @@
+page-welcome {
+
+#welcome{
+	background-image: url(../assets/imgs/fox1.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-color: transparent
+}
+
+h1{
+	font-size: 30px;
+	margin-top: 80px !important;
+	color: color($colors, wtext);
+}
+}

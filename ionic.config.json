@@ -1,6 +1,6 @@
 {
   "name": "century",
-  "app_id": "",
+  "app_id": "d970ff16",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}
