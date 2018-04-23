@@ -15,16 +15,21 @@
 
 <ion-content padding>
 
-	  <ion-list *ngFor="let movie of movie">
+	  <ion-list>
   	<ion-item>
-  		<ion-label floating>First Name</ion-label>
-  		<ion-input type="text" value="{{movie.name}}"></ion-input>
+  		<ion-label floating>Account</ion-label>
+  		<ion-input type="text" [(ngModel)]="bookData.account" name="account"></ion-input>
   	</ion-item>
 
   	<ion-item>
-  		<ion-label floating>Last Name</ion-label>
-  		<ion-input type="text"></ion-input>
+  		<ion-label floating>Number of Tickets</ion-label>
+  		<ion-input type="text" [(ngModel)]="bookData.seats" name="seats"></ion-input>
   	</ion-item>
+
+  	<div padding style="padding-left: 70%;">
+  	<button ion-button color="dark" (click)="book()">Book
+  		
+  	</button></div>
   </ion-list>
 	
 	<!--  <ion-card *ngFor="let movie of movie">

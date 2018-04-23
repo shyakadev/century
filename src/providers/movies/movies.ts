@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 /*
   Generated class for the MoviesProvider provider.
@@ -13,7 +14,7 @@ export class MoviesProvider {
   /*getApi = '192.168.43.1/apis2/movies';*/
 
 
-  constructor(public http: HttpClient) {
+  constructor(public http: HttpClient, public httP: Http) {
     console.log('Hello MoviesProvider Provider');
   }
 
@@ -39,5 +40,16 @@ export class MoviesProvider {
     })
   }
 
+postData(credentials, type) {
+  return new Promise((resolve, reject)=>{
+    let headers = new Headers();
+    this.httP.post(this.getApi+type, credentials, {headers: headers}).subscribe(res =>{
+      resolve(res.json());
+      console.log(res.json()+'pass');
+    },(err) =>{
+      console.log(err+'exa');
+    });
+  });
+}
 
 }
