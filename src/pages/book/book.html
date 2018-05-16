@@ -21,10 +21,23 @@
   		<ion-input type="text" [(ngModel)]="bookData.account" name="account"></ion-input>
   	</ion-item>
 
+    <ion-item>
+      <ion-label floating>Seat No</ion-label>
+      <ion-select [(ngModel)]="bookData.seatno" name="seatno">
+        <ion-option *ngFor="let seat of seats" value="{{seat}}">{{seat}}</ion-option>
+      </ion-select>
+    </ion-item>
+
   	<ion-item>
-  		<ion-label floating>Number of Tickets</ion-label>
-  		<ion-input type="text" [(ngModel)]="bookData.seats" name="seats"></ion-input>
-  	</ion-item>
+      <ion-label floating>Time</ion-label>
+      <ion-select [(ngModel)]="bookData.time" name="seatno">
+        <ion-option value="15:30">15:30</ion-option>
+         <ion-option value="18:30">18:30</ion-option>
+          <ion-option value="20:30">20:30</ion-option>
+
+
+      </ion-select>
+    </ion-item>
 
   	<div padding style="padding-left: 70%;">
   	<button ion-button color="dark" (click)="book()">Book

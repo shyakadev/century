@@ -17,23 +17,39 @@ import { MoviesProvider } from '../../providers/movies/movies';
 export class BookPage {
 	responseData: any;
   data = JSON.parse(localStorage.getItem("userData"));
-  uname = this.data.uname;
-  bookData = {"account":"","seats":""};
-
+  bookData = {"account":"","seatno":"","uname":"","mid":"","time":""};
+  movie: any;
+  seats = [];
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public moviesProvider: MoviesProvider, private toastCtrl:ToastController) {
+    
+    console.log(this.data.userData.uname);
+    this.movie = this.navParams.get("mid");
+    console.log(this.movie);
+    this.seat();
     }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad BookPage');
   }
 
+    seat(){
+   
+    for(var i=0; i<256; i++){
+      this.seats[i] = i+1;
+      console.log(this.seats);
+    }
+  }
+
 book() {
-  if(this.bookData.account && this.bookData.seats){
+  this.bookData.uname=this.data.userData.uname;
+  this.bookData.mid = this.movie;
+  console.log(this.bookData.account+" username "+this.bookData.uname+this.bookData.seatno+"time");
+ if(this.bookData.account && this.bookData.seatno){
     this.moviesProvider.postData(this.bookData, 'book').then((result) =>{
       this.responseData = result;
-      if(this.responseData.success){
+      if(this.responseData){
         console.log(this.responseData);
         this.presentToast("Thank U for booking with Us...");
       }

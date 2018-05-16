@@ -21,6 +21,8 @@ export class MoviesPage {
   	this.getMovies();
   }
 
+
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad MoviesPage');
   }
